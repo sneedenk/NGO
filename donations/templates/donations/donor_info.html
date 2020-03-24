@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Donor Information</title>
+    <h2>Enter your personal information</h2>
+</head>
+<body>
+  <form method='post' class="DonorForm" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" class='save button'>Save</button>
+  </form>
+</body>
+</html>

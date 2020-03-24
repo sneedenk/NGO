@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Details</title>
+    <h2>Product Details</h2>
+</head>
+<body>
+    {% csrf_token %}
+    Product: {{product.name}} <br>
+    Price: ${{product.price}} <br>
+    <br>
+    {% if user.is_authenticated %}
+        <form method="post">
+            {% csrf_token %}
+            <a href="{% url 'productapp:update_product' product.id %}">Update This Product</a>
+            <br>
+            <a href="{% url 'productapp:delete_product' product.id %}">Delete This Product</a>
+            <!-- <button type="submit" class='delete button'>Delete Product</button> -->
+        </form>
+    {% endif %}
+    <br>
+    <br>
+    <a href="/">Back</a>
+</body>
+</html>

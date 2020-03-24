@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <h2>Create A New Account</h2>
+</head>
+<body>
+  <form method='post' class="CreateUserForm">
+  {% csrf_token %}
+  {{ new_user_form.as_p }}
+  <button type="submit" class='save button'>Save</button>
+  </form>
+  <br>
+  <a href="/">Back</a>
+</body>
+</html>
