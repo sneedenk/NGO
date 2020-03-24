@@ -35,22 +35,3 @@ urlpatterns = [
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-
-# possible alternative to ^
-# if settings.DEBUG:
-#    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-# For use with class based views
-# urlpatterns = [
-#     url('admin', admin.site.urls),
-#     url(r'^$', views.ProductListView.as_view(), name='product_list'),
-#     url(r'', include(urls, namespace="productapp")),
-#     url(r'accounts/', include(('django.contrib.auth.urls', 'django_accounts'), namespace="django_accounts")),
-# ]
-
-# For use with function based views
-# urlpatterns = [
-#     url('admin', admin.site.urls),
-#     url(r'^$', views.product_list, name='product_list'),
-#     url(r'^', include(urls, namespace="productapp")),
-# ]
