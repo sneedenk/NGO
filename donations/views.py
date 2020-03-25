@@ -10,7 +10,6 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from donations.models import Donor
 from donations.models import DonationDetails
-from donations.models import DonationType
 from donations.models import Events
 from donations.forms import DonorForm
 from donations.forms import DonationDetailsForm
@@ -20,9 +19,14 @@ from django.http import HttpResponseRedirect
 
 
 # Generic class based views here.
-class DonationTypeView(ListView):
-    model = DonationType
-    template_name = 'make_donation.html'
+class EventListView(ListView):
+    model = Events
+    template_name = 'events.html'
+
+
+class EventDetailsView(DetailView):
+    model = Events
+    template_name = 'event_details.html'
 
 
 class DonorInfoView(CreateView):

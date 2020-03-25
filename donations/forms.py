@@ -1,6 +1,5 @@
 from .models import Donor
 from .models import DonationDetails
-from .models import DonationType
 from .models import Events
 from django import forms
 from django.contrib.auth.models import User

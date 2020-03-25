@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="../../../static/css/basic.css">
 </head>
 <body>
-{% comment %}
+
 <div id="header">
     {% block header %}
         {% if user.username %}
@@ -18,16 +18,16 @@
         {% endif %}
     {% endblock %}
 </div>
-{% endcomment %}
 
- {% for donation_type in object_list %}
-    <a href="{% url 'donations:product_details' product.id %}">{{donation_type}}</a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+ {% for event in object_list %}
+    <a href="{% url 'donations:event_details' event.id %}">{{event}}</a>&nbsp;&nbsp;&nbsp;&nbsp;
  {% endfor %}
  <br>
 
 {% comment %}
 {% if user.is_authenticated %}
-    <a href="{% url 'productapp:new_product' %}">New Product</a><br><br>
+    <a href="{% url 'donations:create_event' %}">New Event</a><br><br>
 {% endif %}
 {% endcomment %}
 </body>

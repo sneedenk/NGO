@@ -38,10 +38,6 @@ class DonationDetails(models.Model):
     amount = models.DecimalField(max_digits=10, decimal_places=2, null=False, blank=False)
 
 
-class DonationType(models.Model):
-    name = models.CharField(max_length=40, null=False, blank=False)
-
-
 class Events(models.Model):
     name = models.CharField(max_length=40, null=False, blank=False)
     date = models.DateField(null=False, blank=False)
