@@ -35,7 +35,7 @@ class DonorInfoView(CreateView):
     form_class = DonorForm
 
     def get_success_url(self):
-        return reverse('donations:donation_info', args=[self.object.id])
+        return reverse('donations:donation_details', args=[self.object.id])
 
 
 class DonationDetailsView(CreateView):

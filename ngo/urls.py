@@ -26,8 +26,6 @@ from donations import views
 urlpatterns = [
     url('admin', admin.site.urls),
     url(r'^$', views.EventListView.as_view(), name='list_events'),
-    url(r'^donor$', views.DonorInfoView.as_view(), name='donor_info'),
-    url(r'^donation$', views.DonationDetailsView.as_view(), name='donor_details'),
     url(r'^event$', views.CreateEventView.as_view(), name='create_event'),
     url(r'', include(urls, namespace="donations")),
     url(r'accounts/', include(('django.contrib.auth.urls', 'django_accounts'), namespace="django_accounts")),

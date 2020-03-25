@@ -19,7 +19,7 @@
     {% endblock %}
 </div>
 
-
+ Upcoming Events: <br>
  {% for event in object_list %}
     <a href="{% url 'donations:event_details' event.id %}">{{event.name}}</a>&nbsp;&nbsp;&nbsp;&nbsp;
  {% endfor %}
