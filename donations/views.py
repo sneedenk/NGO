@@ -52,6 +52,8 @@ class CreateEventView(CreateView):
     template_name = 'create_event.html'
     form_class = EventForm
 
+    def get_success_url(self):
+        return reverse('donations:event_details', args=[self.object.id])
 
 class CreateUserView(CreateView):
     model = User
