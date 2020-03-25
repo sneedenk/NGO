@@ -21,7 +21,7 @@
 
 
  {% for event in object_list %}
-    <a href="{% url 'donations:event_details' event.id %}">{{event}}</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="{% url 'donations:event_details' event.id %}">{{event.name}}</a>&nbsp;&nbsp;&nbsp;&nbsp;
  {% endfor %}
  <br>
 
