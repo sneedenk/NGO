@@ -41,6 +41,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'users.apps.UsersConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -48,7 +49,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ngo',
-    'donations'
+    'donations',
+    #'users',
+
 ]
 
 MIDDLEWARE = [
@@ -66,8 +69,8 @@ ROOT_URLCONF = 'ngo.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [r'C:\Users\UCI\Documents\GitHub\SummitWorks\DjangoWork\ngo\donations\templates\donations',
-                 r'C:\Users\UCI\Documents\GitHub\SummitWorks\DjangoWork\ngo\donations\templates\registration'],
+        'DIRS': [r'C:\Users\previndra\Desktop\ngo_project\NGO\donations\templates\donations',
+                 r'C:\Users\previndra\Desktop\ngo_project\NGO\donations\templates\registration'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -156,5 +159,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
-LOGIN_REDIRECT_URL = '/'
-LOGIN_URL = '/accounts/login/?next=/'
+
+
+AUTH_USER_MODEL = 'users.User'
+
+LOGIN_REDIRECT_URL = 'profile'

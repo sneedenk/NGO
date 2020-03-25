@@ -17,10 +17,10 @@ from django.contrib import admin
 from django.contrib.staticfiles.urls import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf import settings
-from django.conf.urls import include, url
+from django.conf.urls import url
 from donations import urls
 from donations import views
-
+from django.urls import path, include
 
 # For use with class based generic views
 urlpatterns = [
@@ -28,7 +28,9 @@ urlpatterns = [
     url(r'^$', views.EventListView.as_view(), name='list_events'),
     url(r'^event$', views.CreateEventView.as_view(), name='create_event'),
     url(r'', include(urls, namespace="donations")),
-    url(r'accounts/', include(('django.contrib.auth.urls', 'django_accounts'), namespace="django_accounts")),
+    path('usr/', include('users.urls')),
+
+    #url(r'accounts/', include(('django.contrib.auth.urls', 'django_accounts'), namespace="django_accounts")),
 ]
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+{% block content %}
+    <div>
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset>
+                <legend>
+                    Join Today
+                    {{ form.as_p }}
+                </legend>
+            </fieldset>
+            <div>
+                <button type="submit"> Sign Up </button>
+            </div>
+        </form>
+        <div>
+            <small>'Already have an account?'<a href="{% url 'login-page' %}">Sign In</a></small>
+
+        </div>
+    </div>
+{% endblock content %}
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Logout</title>
+</head>
+<body>
+{% block content %}
+<h2>You are logged out</h2>
+    <div>
+
+        <div>
+            <small>Already have an account?<a href="{% url 'login-page' %}">Sign In</a></small>
+
+        </div>
+    </div>
+{% endblock content %}
+</body>
+</html>

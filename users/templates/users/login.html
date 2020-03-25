@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+</head>
+<body>
+{% block content %}
+    <div>
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset>
+                <legend>
+                    Log In
+                    {{ form.as_p }}
+                </legend>
+            </fieldset>
+            <div>
+                <button type="submit"> Log In </button>
+            </div>
+        </form>
+        <div>
+            <small>'Need an account?'<a href="{% url 'register-page' %}">Sign Up Now</a></small>
+
+        </div>
+    </div>
+{% endblock content %}
+</body>
+</html>

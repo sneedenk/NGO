@@ -2,7 +2,7 @@ from .models import Donor
 from .models import DonationDetails
 from .models import Events
 from django import forms
-from django.contrib.auth.models import User
+from users.models import User
 from django.contrib.auth.forms import UserCreationForm
 
 

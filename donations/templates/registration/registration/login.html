@@ -18,7 +18,7 @@
     {% endif %}
   {% endif %}
 
-  <form method="post" action="{% url 'django_accounts:login' %}">
+  <form method="post" action="{% url 'login-page' %}">
     {% csrf_token %}
     <table>
       <tr>
