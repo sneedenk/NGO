@@ -53,7 +53,6 @@ class CreateEventView(CreateView):
     form_class = EventForm
 
 
-
 class CreateUserView(CreateView):
     model = User
     form_class = CreateUserForm
@@ -61,4 +60,4 @@ class CreateUserView(CreateView):
     # fields = ('username', 'password', 'first_name', 'last_name', 'email')
 
     def get_success_url(self):
-        return reverse('product_list')
+        return reverse('list_events')
