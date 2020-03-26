@@ -15,7 +15,7 @@ from users.models import User
 
 
 class Donor(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     CMA_num = models.IntegerField(null=False, blank=False)
     phone = models.CharField(max_length=40, null=False, blank=False)
     address = models.CharField(max_length=100, null=False, blank=False)
@@ -32,7 +32,7 @@ class DonationDetails(models.Model):
         constraints = [models.UniqueConstraint(fields=['donor', 'donation_type'], name='unique_donation')]
 
     donor = models.ForeignKey(Donor, on_delete=models.CASCADE)
-    donation_type = models.CharField(max_length=40, null=False, blank=False)
+    event = models.CharField(max_length=40, null=False, blank=False)
     amount = models.DecimalField(max_digits=10, decimal_places=2, null=False, blank=False)
 
 
