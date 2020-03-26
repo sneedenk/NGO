@@ -17,7 +17,7 @@ from django.forms.widgets import SelectDateWidget
 
 
 class Donor(models.Model):
-    user = models.OneToOneField(User, primary_key=True, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     CMA_num = models.IntegerField(null=False, blank=False)
     phone = models.CharField(max_length=40, null=False, blank=False)
     address = models.CharField(max_length=100, null=False, blank=False)

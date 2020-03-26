@@ -26,8 +26,9 @@ app_name = 'donations'
 urlpatterns = [
     url(r'^new_user/$', views.CreateUserView.as_view(), name='new_user'),
     url(r'^event(?P<pk>\d+)$', views.EventDetailsView.as_view(), name='event_details'),
-    url(r'^event(?P<pk>\d+)/donor$', views.DonorInfoView.as_view(), name='donor_info'),
-    url(r'^event(?P<pk>\d+)/donation$', views.DonationDetailsView.as_view(), name='donation_details'),
+    url(r'^event$', views.CreateEventView.as_view(), name='create_event'),
+    url(r'^donor$', views.DonorInfoView.as_view(), name='donor_info'),
+    url(r'^donation$', views.DonationDetailsView.as_view(), name='donation_details'),
 ]
 # urlpatterns += staticfiles_urlpatterns()
 # urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
