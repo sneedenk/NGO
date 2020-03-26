@@ -33,7 +33,7 @@ class DonationDetails(models.Model):
     class Meta:
         constraints = [models.UniqueConstraint(fields=['donor', 'donation_type'], name='unique_donation')]
 
-    donor = models.ForeignKey('Donor', on_delete=models.CASCADE)
+    donor = models.ForeignKey(Donor, on_delete=models.CASCADE)
     donation_type = models.CharField(max_length=40, null=False, blank=False)
     amount = models.DecimalField(max_digits=10, decimal_places=2, null=False, blank=False)
 
