@@ -36,27 +36,11 @@ class DonorInfoView(CreateView):
     form_class = DonorForm
 
     def form_valid(self, form):
-        print("USER ID: ", self.request.user)
         user_ID = User.objects.values_list('id', flat=True).get(username__iexact=self.request.user)
-        print("RIGHT HERE", user_ID)
         post = form.save(commit=False)
         post.user_id = user_ID
-        # print(post.user_id)
-        print(self.request.user)
         post.save()
         return HttpResponseRedirect(self.get_success_url())
-
-    # def post(self, request, *args, **kwargs):
-    #     form = self.get_form()
-    #     if form.is_valid():
-    #         post = form.save(commit=False)
-    #         # post.author = request.user
-    #         post.user_id = request.user.id
-    #         post.save()
-    #         return self.form_valid(form)
-    #     else:
-    #         return self.form_invalid(form)
-
 
     def get_success_url(self):
         return reverse('donations:donation_details')
@@ -66,6 +50,17 @@ class DonationDetailsView(CreateView):
     model = DonationDetails
     template_name = 'donation_details.html'
     form_class = DonationDetailsForm
+
+    def form_valid(self, form):
+        print("USER ID: ", self.request.user)
+        donor_ID = Donor.objects.values_list('id', flat=True).filter(user=self.request.user).last()
+        print("RIGHT HERE", donor_ID)
+        post = form.save(commit=False)
+        post.donor_id = donor_ID
+        # print(post.user_id)
+        print(self.request.user)
+        post.save()
+        return HttpResponseRedirect(self.get_success_url())
 
     def get_success_url(self):
         return reverse('donations:cart')

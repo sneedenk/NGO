@@ -15,7 +15,7 @@ class DonorForm(forms.ModelForm):
 class DonationDetailsForm(forms.ModelForm):
     class Meta:
         model = DonationDetails
-        fields = '__all__'
+        fields = ('event', 'amount')
 
 
 class EventForm(forms.ModelForm):
