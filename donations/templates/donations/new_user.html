@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Sign Up</title>
-    <h2>Create A New Account</h2>
-</head>
-<body>
+{% extends "users/base.html" %}
+<h2>Create A New Account</h2>
+{% block content %}
   <form method='post' class="CreateUserForm">
   {% csrf_token %}
   {{ form.as_p }}
@@ -13,5 +8,11 @@
   </form>
   <br>
   <a href="/">Back</a>
-</body>
-</html>
+{% endblock content %}
+
+
+{% block side1link %}"/"{% endblock side1link %}
+{% block side1 %}Home{% endblock side1 %}
+
+{% block side2link %}"/usr/login/"{% endblock side2link %}
+{% block side2 %}Login{% endblock side2 %}

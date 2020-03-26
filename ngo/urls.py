@@ -24,7 +24,7 @@ from django.urls import path, include
 
 # For use with class based generic views
 urlpatterns = [
-    url('admin', admin.site.urls),
+    url('admin/', admin.site.urls),
     url(r'^$', views.EventListView.as_view(), name='list_events'),
     url(r'^event$', views.CreateEventView.as_view(), name='create_event'),
     url(r'', include(urls, namespace="donations")),

@@ -2,6 +2,8 @@ from django.urls import path, include
 from . import views as users_views
 from django.contrib.auth import views as auth_views
 
+app_name = 'users'
+
 
 urlpatterns = [
     path('home', users_views.home, name='home-page'),

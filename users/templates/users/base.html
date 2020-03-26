@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>{% block title %}{% endblock title %}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body {
@@ -33,8 +34,8 @@ body {
 
 .main {
   margin-left: 160px; /* Same as the width of the sidenav */
-  font-size: 28px; /* Increased text to enable scrolling */
-  padding: 0px 10px;
+  font-size: 14px; /* Increased text to enable scrolling */
+  padding: 10px 10px;
 }
 
 @media screen and (max-height: 450px) {
@@ -46,11 +47,11 @@ body {
 <body>
 
 <div class="sidenav">
-  <a href="#about">{% block side1 %}{% endblock side1 %}</a>
-    <a href="#services">{% block side2 %}{% endblock side2 %}</a>
-    <a href="#services2">{% block side3 %}{% endblock side3 %}</a>
-  <a href="#clients">{% block side4 %}{% endblock side4 %}</a>
-  <a href="#contact">{% block side5 %}{% endblock side5 %}</a>
+  <a href={% block side1link %}{% endblock side1link %}>{% block side1 %}{% endblock side1 %}</a>
+    <a href={% block side2link %}{% endblock side2link %}>{% block side2 %}{% endblock side2 %}</a>
+    <a href={% block side3link %}{% endblock side3link %}>{% block side3 %}{% endblock side3 %}</a>
+  <a href={% block side4link %}{% endblock side4link %}>{% block side4 %}{% endblock side4 %}</a>
+  <a href={% block side5link %}{% endblock side5link %}>{% block side5 %}{% endblock side5 %}</a>
 </div>
 
 <div class="main">

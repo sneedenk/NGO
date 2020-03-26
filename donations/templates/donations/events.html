@@ -12,9 +12,9 @@
 <div id="header">
     {% block header %}
         {% if user.username %}
-            <p>Hello User: {{ user.username }} | <a href="{% url 'logout-page' %}?next={{request.path}}">Logout</a></p>
+            <p>Hello User: {{ user.username }} | <a href="{% url 'users:logout-page' %}?next={{request.path}}">Logout</a></p>
         {% else %}
-            <p><a href="{% url 'login-page' %}">Login</a> | <a href="{% url 'donations:new_user' %}">Sign Up</a> </p>
+            <p><a href="{% url 'users:login-page' %}">Login</a> | <a href="{% url 'donations:new_user' %}">Sign Up</a> </p>
         {% endif %}
     {% endblock %}
 </div>
