@@ -13,4 +13,5 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout-page'),
     # format for adding admin exclusive views below
     path('check/', users_views.admin_view, name='checking'),
+    path('usr_view/', users_views.usr_view, name='usr_view'),
 ]

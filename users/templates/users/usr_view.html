@@ -1,0 +1,29 @@
+{% extends "users/base.html" %}
+{% block content %}
+<h1>Hi {{user.username}}!!!</h1>
+<div class='col-sm-8 col-sm-offset-2'>
+<table>
+    <thead>
+    <th>User ID</th>
+    <th>Username</th>
+    <th> is admin</th>
+    </thead>
+    {%for user in users %}
+    <tr><td>{{user.id}}</td><td>{{user.username}}</td><td>{{user.is_admin}}</td></tr>
+
+    {% endfor %}
+
+</table>
+</div>
+{% endblock content %}
+
+
+
+{% block side1link %}/{% endblock side1link %}
+{% block side1 %}Home{% endblock side1 %}
+
+{% block side2link %}/usr/profile{% endblock side2link %}
+{% block side2 %}Profile{% endblock side2 %}
+
+{% block side3link %}/usr/logout{% endblock side3link %}
+{% block side3 %}Logout{% endblock side3 %}
