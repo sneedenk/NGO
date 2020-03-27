@@ -1,7 +1,7 @@
 {% extends "users/base.html" %}
 {% block content %}
 
-{{user.username }}<h1>welcome regular user</h1>
+<h1>welcome {{user.username }}</h1>
 
 
 {% endblock content %}
@@ -10,5 +10,8 @@
 {% block side1link %}/{% endblock side1link %}
 {% block side1 %}Home{% endblock side1 %}
 
-{% block side2link %}/usr/logout{% endblock side2link %}
-{% block side2 %}Logout{% endblock side2 %}
+{% block side2link %}/usr/usr_view{% endblock side2link %}
+{% block side2 %}Account Details{% endblock side2 %}
+
+{% block side3link %}/usr/logout{% endblock side3link %}
+{% block side3 %}Logout{% endblock side3 %}

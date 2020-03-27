@@ -1,20 +1,45 @@
 {% extends "users/base.html" %}
+
+
+
 {% block content %}
 <h1>Hi {{user.username}}!!!</h1>
-<div class='col-sm-8 col-sm-offset-2'>
-<table>
-    <thead>
-    <th>User ID</th>
-    <th>Username</th>
-    <th> is admin</th>
-    </thead>
-    {%for user in users %}
-    <tr><td>{{user.id}}</td><td>{{user.username}}</td><td>{{user.is_admin}}</td></tr>
 
-    {% endfor %}
+{% if user.is_admin %}
+    <div class='col-sm-8 col-sm-offset-2'>
+    <table>
+        <thead>
+        <th>User ID</th>
+        <th>Username</th>
+        <th> is admin</th>
+        </thead>
+        {%for user in users %}
+        <tr><td>{{user.id}}</td><td>{{user.username}}</td><td>{{user.is_admin}}</td></tr>
 
-</table>
-</div>
+        {% endfor %}
+
+    </table>
+
+    </div>
+
+    {% else %}
+        <div class='col-sm-8 col-sm-offset-2'>
+        <table>
+            <thead>
+            <th>User ID</th>
+            <th>Username</th>
+            <th> is admin</th>
+            </thead>
+
+            <tr><td>{{user.id}}</td><td>{{user.username}}</td><td>{{user.is_admin}}</td></tr>
+
+
+
+        </table>
+
+        </div>
+{% endif %}
+
 {% endblock content %}
 
 

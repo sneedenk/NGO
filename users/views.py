@@ -40,8 +40,9 @@ def admin_view(request):
 
 
 @login_required
-@admin_required
 def usr_view(request):
     user = User.objects.all()
     usr_dict = {'users': user}
     return render(request,template_name='users/usr_view.html', context=usr_dict)
+
+
