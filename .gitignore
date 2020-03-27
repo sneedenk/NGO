@@ -35,3 +35,7 @@ ngo/__pycache__/urls.cpython-38.pyc
 users/__pycache__/models.cpython-38.pyc
 users/__pycache__/urls.cpython-38.pyc
 users/migrations/0001_initial.py
+*.pyc
+donations/migrations/0002_auto_20200327_0001.py
+donations/migrations/0002_auto_20200327_1228.py
+donations/migrations/0002_auto_20200327_0001.py

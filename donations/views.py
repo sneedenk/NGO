@@ -47,6 +47,10 @@ class DonationDetailsView(CreateView):
     form_class = DonationDetailsForm
 
     def form_valid(self, form):
+        # get order number
+        # filter on "order", check len(queryset) if its 0, set order=0, otherwise order = last + 1
+        # apply order # to all rows saved from this transaction
+        
         print("USER ID: ", self.request.user)
         donor_ID = Donor.objects.values_list('id', flat=True).filter(user=self.request.user).last()
         print("RIGHT HERE", donor_ID)

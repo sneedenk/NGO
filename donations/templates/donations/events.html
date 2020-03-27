@@ -25,9 +25,11 @@
  {% endfor %}
  <br>
  <br>
- {# {% if user.is_authenticated %} #}
+ {% if user.is_authenticated %}
     <a href="{% url 'donations:donor_info' %}">Donate Today!</a><br><br>
+ {% endif %}
+ {% if user.is_admin %}
     <a href="{% url 'donations:create_event' %}">New Event</a><br><br>
- {# {% endif %} #}
+ {% endif %}
 </body>
 </html>
