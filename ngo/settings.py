@@ -69,8 +69,8 @@ ROOT_URLCONF = 'ngo.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [r'C:\Users\previndra\Desktop\ngo_project\NGO\donations\templates\donations',
-                 r'C:\Users\previndra\Desktop\ngo_project\NGO\donations\templates\registration'],
+        'DIRS': [os.path.join(BASE_DIR), r'donations\templates\donations',
+                 os.path.join(BASE_DIR), r'donations\templates\registration'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

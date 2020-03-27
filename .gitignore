@@ -23,3 +23,15 @@ users/__pycache__/urls.cpython-38.pyc
 users/migrations/__pycache__/0001_initial.cpython-37.pyc
 users/migrations/__pycache__/0001_initial.cpython-38.pyc
 users/migrations/__pycache__/__init__.cpython-37.pyc
+*.pyc
+db.sqlite3
+donations/__pycache__/models.cpython-38.pyc
+donations/__pycache__/views.cpython-38.pyc
+donations/migrations/0002_auto_20200326_1635.py
+donations/migrations/0002_auto_20200326_1720.py
+donations/migrations/0002_auto_20200326_2116.py
+ngo/__pycache__/settings.cpython-38.pyc
+ngo/__pycache__/urls.cpython-38.pyc
+users/__pycache__/models.cpython-38.pyc
+users/__pycache__/urls.cpython-38.pyc
+users/migrations/0001_initial.py
