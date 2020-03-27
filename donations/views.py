@@ -78,3 +78,7 @@ class CreateUserView(CreateView):
 
     def get_success_url(self):
         return reverse('list_events')
+
+
+class displayCart():
+    pass

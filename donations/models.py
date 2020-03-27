@@ -28,9 +28,7 @@ class Donor(models.Model):
 
 
 class DonationDetails(models.Model):
-    class Meta:
-        constraints = [models.UniqueConstraint(fields=['donor', 'event'], name='unique_donation')]
-
+    order = models.IntegerField(null=False)  # user doesn't fill this in
     donor = models.ForeignKey(Donor, on_delete=models.CASCADE)
     event = models.CharField(max_length=40, null=False, blank=False)
     amount = models.DecimalField(max_digits=10, decimal_places=2, null=False, blank=False)

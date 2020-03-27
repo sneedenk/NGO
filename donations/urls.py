@@ -29,6 +29,7 @@ urlpatterns = [
     url(r'^event$', views.CreateEventView.as_view(), name='create_event'),
     url(r'^donor$', views.DonorInfoView.as_view(), name='donor_info'),
     url(r'^donation$', views.DonationDetailsView.as_view(), name='donation_details'),
+    #url(r'^cart$'),
 ]
 # urlpatterns += staticfiles_urlpatterns()
 # urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
