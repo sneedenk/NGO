@@ -8,8 +8,27 @@
 <body>
   <form method='post' class="DonationDetailsForm" enctype="multipart/form-data">
   {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit" class='save button'>Save</button>
+  {{ event_formset.management_form }}
+  {% for form in event_formset %}
+      <div class="ro form-row spacer">
+          <div class="col-2">
+              <label>{{form.amount.label}}</label>
+          </div>
+          <div class="col-4">
+              <div class="input-group">
+                  {{form.amount}}
+              </div>
+          </div>
+      </div>
+      <br>
+  {% endfor %}
+  <div class="row spacer">
+      <div class="col-4 offset-2">
+          <button type="submit" class="btn btn-block btn-primary">Save</button>
+      </div>
+  </div>
   </form>
+  <br>
+  <a href="/">Cancel</a>
 </body>
 </html>

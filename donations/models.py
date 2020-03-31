@@ -2,20 +2,8 @@ from django.db import models
 from users.models import User
 
 
-# # Create your models here.
-# # class Product(models.Model):
-# #     name = models.CharField(max_length=20)
-# #     price = models.IntegerField()
-# #     image = models.ImageField(upload_to='images', default=None, null=True, blank=True)
-# #
-# #     # you can call save() from Model class to save Product
-# #
-# #     def __str__(self):
-# #         return self.name
-
-
 class Donor(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     CMA_num = models.IntegerField(null=False, blank=False)
     phone = models.CharField(max_length=40, null=False, blank=False)
     address = models.CharField(max_length=100, null=False, blank=False)
@@ -28,8 +16,8 @@ class Donor(models.Model):
 
 
 class DonationDetails(models.Model):
-    order = models.IntegerField(null=False)  # user doesn't fill this in
-    donor = models.ForeignKey(Donor, on_delete=models.CASCADE)
+    order = models.IntegerField(default=1, null=False)  # user doesn't fill this in
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     event = models.CharField(max_length=40, null=False, blank=False)
     amount = models.DecimalField(max_digits=10, decimal_places=2, null=False, blank=False)
 
