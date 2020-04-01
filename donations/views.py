@@ -8,13 +8,15 @@ from django.views.generic.base import View
 from django.forms import modelformset_factory
 from django.shortcuts import render
 from donations.models import Donor
-from donations.models import DonationDetails
+from donations.models import DonationDetails, Cart
 from donations.models import Events
 from donations.forms import DonorForm
 from donations.forms import DonationDetailsForm
 from donations.forms import EventForm, EventFormSet
 from donations.forms import CreateUserForm
 from django.http import HttpResponseRedirect
+from django.views.decorators.http import require_POST
+from django.shortcuts import render, redirect, get_object_or_404
 
 
 # Generic class based views here.
@@ -90,40 +92,6 @@ class DonationDetailsView(View):
         return render(request, 'donation_details.html', context)
 
 
-# class DonationDetailsView(CreateView):
-#     model = DonationDetails
-#     template_name = 'donation_details.html'
-#     form_class = DonationDetailsForm
-#
-#     def form_valid(self, form):
-#         # get order number
-#         # filter on "order", check len(queryset) if its 0, set order=0, otherwise order = last + 1
-#         # apply order # to all rows saved from this transaction
-#
-#         print("USER ID: ", self.request.user)
-#         donor_ID = Donor.objects.values_list('id', flat=True).filter(user=self.request.user).last()
-#         #order_ID = DonationDetails.objects.values_list('order', flat=True).filter(donor_ID)
-#         #print("ORDER: ", DonationDetails.objects.values_list('order', flat=True).filter(donor_ID))
-#         queryset = DonationDetails.objects.values_list('order', flat=True)
-#         print("QS LENGTH: ", len(queryset))
-#         print(queryset)
-#         # if len(queryset) == 0:
-#         #     print("EMPTY QUERYSET")
-#         #     order_ID = 1
-#
-#         print("RIGHT HERE", donor_ID)
-#         post = form.save(commit=False)
-#         post.donor_id = donor_ID
-#         #post.order = order_ID
-#         # print(post.user_id)
-#         print(self.request.user)
-#         post.save()
-#         return HttpResponseRedirect(self.get_success_url())
-#
-#     def get_success_url(self):
-#         return reverse('donations:cart')
-
-
 class CreateEventView(CreateView):
     model = Events
     template_name = 'create_event.html'
@@ -143,5 +111,25 @@ class CreateUserView(CreateView):
         return reverse('list_events')
 
 
-class displayCart():
-    pass
+@require_POST
+def cart_add(request):
+    cart = Cart(request)
+    donation = DonationDetailsForm(request.POST)
+
+    if donation.is_valid():
+        cd = donation.cleaned_data
+        cd.save()
+        donate = get_object_or_404(DonationDetails, id=donation.id)
+        cart.add(donate)
+
+
+def cart_remove(request, donation_id):
+    cart = Cart(request)
+    donate = get_object_or_404(DonationDetails, id=donation_id)
+    cart.remove(donate)
+
+
+def cart_details(request):
+    cart = Cart(request)
+
+    return render(request,'donations/cart.html',{'cart': cart})

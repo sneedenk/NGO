@@ -164,3 +164,5 @@ USE_TZ = True
 AUTH_USER_MODEL = 'users.User'
 
 LOGIN_REDIRECT_URL = '/usr/profile/'
+
+CART_SESSION_ID = 'cart'
