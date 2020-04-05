@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+On the page to see the events!!!
+
+
+<div>
+<a href="{% url 'users:usr_view'  %}" class="btn">Back to Profile</a>
+</div>
+{% for event in events %}
+<form action="{% url 'donations:cart_add' event.id %}" method="post">
+  {% csrf_token %}
+
+    <p>{{event.id}}</p>
+    <p>{{event.name}}</p>
+
+    <label for="amount">Amount:</label>
+    <input type="number" min = "0" id="amount" name="amount"><br><br><br>
+    <input type="submit" value="Add to cart">
+    <a href="{% url 'donations:cart_remove' event.id %}" class="btn">Remove From Cart</a>
+</form>
+{% endfor %}
+
+</body>
+</html>

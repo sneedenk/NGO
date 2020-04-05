@@ -29,6 +29,15 @@ urlpatterns = [
     url(r'^event$', views.CreateEventView.as_view(), name='create_event'),
     url(r'^donor$', views.DonorInfoView.as_view(), name='donor_info'),
     url(r'^donation$', views.DonationDetailsView.as_view(), name='donation_details'),
+<<<<<<< Updated upstream
+=======
+    url(r'eventlist$', views.event_list, name='eventlist'),
+    url(r'addtocart+$', views.add_to_cart, name='add_to_cart'),
+    url(r'added/(?P<event_id>\d+)/$', views.cart_add, name='cart_add'),
+    url(r'cart_details', views.cart_details, name='cart_details'),
+    url(r'cart_remove/(?P<event_id>\d+)/$', views.cart_remove, name='cart_remove'),
+    #url(r'^cart$'),
+>>>>>>> Stashed changes
 ]
 # urlpatterns += staticfiles_urlpatterns()
 # urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

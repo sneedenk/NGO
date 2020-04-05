@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for event in cart %}
+
+
+    <p>****************</p>
+
+    <p>****************</p>
+    <p>{{event.event.name}}</p>
+    <p>{{event.amount}}</p>
+    <p>{{event.event.id}}</p>
+
+<a href="{% url 'donations:cart_remove' event.event.id %}" class="btn">Remove From Cart</a>
+{% endfor %}
+
+<a href="{% url 'donations:eventlist' %}" class="btn">Back to list</a>
+</body>
+</html>

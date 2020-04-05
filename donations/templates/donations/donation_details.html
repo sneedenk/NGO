@@ -8,8 +8,32 @@
 <body>
   <form method='post' class="DonationDetailsForm" enctype="multipart/form-data">
   {% csrf_token %}
+<<<<<<< Updated upstream
   {{ form.as_p }}
   <button type="submit" class='save button'>Save</button>
+=======
+  {{ event_formset.management_form }}
+  {% for form in event_formset %}
+      <div class="ro form-row spacer">
+          <div class="col-2">
+              <label>{{form.amount.label}}</label>
+          </div>
+          <div class="col-4">
+              <div class="input-group">
+                  {{form.amount}}
+              </div>
+          </div>
+      </div>
+      <br>
+  {% endfor %}
+  <div class="row spacer">
+      <div class="col-4 offset-2">
+          <button type="submit" class="btn btn-block btn-primary", name="saving">Save</button>
+          <button type="submit" class="btn btn-block btn-primary", name="addingtocart", formaction="{% url 'donations:add_to_cart' %}">Add to Cart</button>
+
+      </div>
+  </div>
+>>>>>>> Stashed changes
   </form>
 </body>
 </html>

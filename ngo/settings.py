@@ -156,5 +156,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
+<<<<<<< Updated upstream
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = '/accounts/login/?next=/'
+=======
+
+
+AUTH_USER_MODEL = 'users.User'
+
+LOGIN_REDIRECT_URL = '/usr/profile/'
+
+
+CART_SESSION_ID = 'cart'
+>>>>>>> Stashed changes
